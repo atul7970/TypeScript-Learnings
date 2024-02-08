@@ -30,13 +30,33 @@
 // })
 
 //Objects in TypeScript
-type Obj = { // type or interface syntax diff '=' nai hoga.
-  height: number;
-  weight: number;
-  gender?: boolean; // ? bcz if we want not include gender sometime.
-};
+// type Obj = {
+//   // type or interface syntax diff '=' nai hoga.
+//   height: number;
+//   weight: number;
+//   gender?: boolean; // ? bcz if we want not include gender sometime.
+// };
 
-const obj = {
-  height: 3435,
-  weight: 345,
-};
+// const obj = {
+//   height: 3435,
+//   weight: 345,
+// };
+// interface Obj1 {
+//   height: number;
+//   weight: number;
+//   gender?: boolean;
+// }
+// interface NewObj1 extends Obj1 {
+//   scolar: boolean;
+//   func?: FuncType;
+// }
+// type FuncType = (n: number, m: number) => void;
+
+// const help: NewObj1 = {
+//   height: 343,
+//   weight: 44,
+//   scolar: true,
+//   func: (n, m) => {
+//     console.log(n, m);
+//   },
+// };
