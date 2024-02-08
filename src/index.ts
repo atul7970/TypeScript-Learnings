@@ -122,8 +122,64 @@
 //   throw new Error();
 // };
 
-
 // --------------------------------------
 
-
 // Classes
+
+// class Player {
+//   public readonly id: String;
+//   constructor(
+//     private height: number,
+//     public weight: number,
+//     protected power?: number
+//   ) {
+//     this.id = String(Math.random() * 100);
+//   }
+//   get getMyHeight() {
+//     // get function
+//     return this.height;
+//   }
+
+//   set changeHeight(val: number) {
+//     //set function : doesn't need the return type
+//     this.height = val;
+//   }
+// }
+// const abhi = new Player(100, 150, 23);
+// abhi.getMyHeight;
+
+// class Player2 extends Player {
+//   special: boolean;
+//   constructor(height: number, weight: number, power: number, special: boolean) {
+//     super(height, weight, power);
+//     this.special = special;
+//   }
+//   getMyPower = () => this.power;
+// }
+
+// console.log("Weight", abhi.weight);
+// console.log("Height", abhi.getMyHeight());
+// console.log("Power", abhi.getMyPower());
+
+interface ProductType {
+  name: string;
+  price: number;
+  stock: number;
+  getId: () => string;
+  offer?: boolean;
+}
+class Product implements ProductType {
+  //   public name: string;
+  //   public price: number;
+  //   public stock: number;
+  private id: string = String(Math.random() * 1000);
+
+  constructor(
+    public name: string,
+    public price: number,
+    public stock: number
+  ) {}
+  getId = () => this.id;
+}
+
+const p1 = new Product("Mackbook", 2000, 20);
