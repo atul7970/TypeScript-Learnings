@@ -60,3 +60,70 @@
 //     console.log(n, m);
 //   },
 // };
+
+// Functions in TypeScript
+
+// type FuncType = (n: number, m: number, l?: number) => number;
+
+// const func: FuncType = (n, m, l) => {
+//   if (typeof l === "undefined") return n * m;
+//   return n * m * l;
+// };
+
+// func(25, 23);
+
+// type FuncType = (n: number, m: number, l?: number) => number;
+
+// // Default params.
+// const func: FuncType = (n, m, l = 20) => {
+//   return n * m * l;
+// };
+// func(25, 23);
+
+// Rest params.
+// type FuncType = (...n: number[]) => number[];
+
+// const func: FuncType = (...n) => {
+//   return n;
+// };
+// func(25, 23, 34, 56, 67);
+
+// function lol(n: number): number {
+//   return 45;
+// }
+
+// Function with objects
+
+// interface Product {
+//   name: string;
+//   stock: number;
+//   price: number;
+//   photo: string;
+//   readonly id: number;
+// }
+
+// type GetDataType = (product: Product) => void;
+
+// const getData: GetDataType = (product) => {
+//   console.log(product);
+// };
+
+// const productOne: Product = {
+//   name: "Macbook",
+//   stock: 46,
+//   price: 999,
+//   photo: "sampleURL",
+//   id: 1,
+// };
+// getData(productOne);
+
+// Never Type
+// const errorHandler = () => {
+//   throw new Error();
+// };
+
+
+// --------------------------------------
+
+
+// Classes
