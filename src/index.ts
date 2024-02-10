@@ -161,25 +161,117 @@
 // console.log("Height", abhi.getMyHeight());
 // console.log("Power", abhi.getMyPower());
 
-interface ProductType {
+// interface ProductType {
+//   name: string;
+//   price: number;
+//   stock: number;
+//   getId: () => string;
+//   offer?: boolean;
+// }
+// class Product implements ProductType {
+//   //   public name: string;
+//   //   public price: number;
+//   //   public stock: number;
+//   private id: string = String(Math.random() * 1000);
+
+//   constructor(
+//     public name: string,
+//     public price: number,
+//     public stock: number
+//   ) {}
+//   getId = () => this.id;
+// }
+
+// const p1 = new Product("Mackbook", 2000, 20);
+
+// ------------------------------------------------
+// DOM Manipulation
+// Type Assertion
+// const a = document.getElementById("btn")!;
+// const a = document.getElementById("btn") as HTMLElement;
+//
+
+// const img = <HTMLImageElement>document.getElementById("g");
+
+// const img = document.querySelector("img")!;
+// img.src;
+
+// const form = document.getElementById("form") as HTMLFormElement;
+// const myinput = document.querySelector("form> input") as HTMLInputElement;
+// form.onsubmit = (e: SubmitEvent) => {
+//   e.preventDefault();
+
+//   // To add something in the input value
+//   const value = Number(myinput.value);
+
+//   const h2 = document.createElement("h2");
+//   const body = document.querySelector("body")!;
+
+//   h2.textContent = String(value + 20);
+//   body.append(h2);
+// };
+
+// Solution 1 : Index Signature
+// interface Person {
+//   [key: string]: string;
+// }
+
+// const myobj: Person = {
+//   name: "Atul",
+//   email: "atul2113062@akgec.ac.in",
+// };
+
+// const getName = (): string => {
+//   return myobj["name"];
+// };
+
+// const getEmail = (): string => {
+//   return myobj["email"];
+// };
+
+// const getData = (key: string): string => {
+//   return myobj[key];
+// };
+
+// Solution 2: Keyof Operator
+// interface Person {
+//   //   [key: string]: string;
+//   name: string;
+//   email: string;
+// }
+
+// const myobj: Person = {
+//   name: "Atul",
+//   email: "atul2113062@akgec.ac.in",
+// };
+
+// const getName = (): string => {
+//   return myobj["name"];
+// };
+
+// const getEmail = (): string => {
+//   return myobj["email"];
+// };
+
+// const getData = (key: keyof Person): string => {
+//   return myobj[key];
+// };
+
+// console.log(getData("name"));
+
+// Solution 3:
+interface Person {
+  //   [key: string]: string;
   name: string;
-  price: number;
-  stock: number;
-  getId: () => string;
-  offer?: boolean;
-}
-class Product implements ProductType {
-  //   public name: string;
-  //   public price: number;
-  //   public stock: number;
-  private id: string = String(Math.random() * 1000);
-
-  constructor(
-    public name: string,
-    public price: number,
-    public stock: number
-  ) {}
-  getId = () => this.id;
+  email: string;
 }
 
-const p1 = new Product("Mackbook", 2000, 20);
+const myobj: Person = {
+  name: "Atul",
+  email: "atul2113062@akgec.ac.in",
+};
+
+let key = "name";
+myobj[key as keyof Person]; //If interface Person is present.
+
+myobj[key as keyof typeof myobj]; //If interface Person is not known.
