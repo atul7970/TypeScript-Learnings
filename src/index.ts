@@ -260,18 +260,102 @@
 // console.log(getData("name"));
 
 // Solution 3:
-interface Person {
-  //   [key: string]: string;
-  name: string;
-  email: string;
-}
+// interface Person {
+//   //   [key: string]: string;
+//   name: string;
+//   email: string;
+// }
 
-const myobj: Person = {
-  name: "Atul",
-  email: "atul2113062@akgec.ac.in",
-};
+// const myobj: Person = {
+//   name: "Atul",
+//   email: "atul2113062@akgec.ac.in",
+// };
 
-let key = "name";
-myobj[key as keyof Person]; //If interface Person is present.
+// let key = "name";
+// myobj[key as keyof Person]; //If interface Person is present.
 
-myobj[key as keyof typeof myobj]; //If interface Person is not known.
+// myobj[key as keyof typeof myobj]; //If interface Person is not known.
+
+// Utility Type
+// Partial<Type>
+// Required<Type>
+// Readonly<Keys,Type>
+// Record<Keys,Type>
+// Pick<Type,Keys>
+// Omit<Type,Keys>
+// Exclude<Type, ExcludedUnion>
+// Extract<Type, Union>
+// NonNullable<Type>
+// Parameters<Type>
+// ConstructorParameters<Type>
+// ReturnType<Type>
+// InstanceType<Type>
+
+// Partial<Type>
+
+// type User = {
+//   name: string;
+//   email: string;
+// };
+// type user2 = Partial<User>;
+
+// Required<Type>
+// type User = {
+//   name: string;
+//   email: string;
+// };
+// type User2 = Required<User>;
+
+// ReadOnly<Keys,Type> - makes every property read-only
+// type User = {
+//   name: string;
+//   email: string;
+// };
+// const user: Readonly<User> = {
+//   name: "abc",
+//   email: "abc@gmail.com",
+// };
+
+// Record<Keys,Type>
+// interface UserInfo {
+//   age: number;
+// }
+// type UserName = "john" | "levi" | "elon" | "jack";
+
+// const users: Record<UserName, UserInfo> = {
+//   john: { age: 34 },
+//   levi: { age: 34 },
+//   elon: { age: 34 },
+//   jack: { age: 34 },
+// };
+
+// Pick<Type,Keys>
+// interface OrderInfo {
+//   readonly id: string;
+//   user: string;
+//   city: string;
+//   state: string;
+// }
+// type ShippingInfo = Pick<OrderInfo, "city" | "state">;
+
+// Omit<Type,Keys>
+
+// interface ShippingInfo {
+//   city: string;
+//   state: string;
+//   country: string;
+// }
+
+// type Random = Omit<ShippingInfo, "country">;
+
+// Exclude<Type, ExcludedUnion>
+// type MyUnion = string | number | boolean;
+// type Random = Exclude<MyUnion, number>;
+
+// Extract<Type, Union>
+// type MyUnion = string | number | boolean;
+// type Random = Extract<MyUnion, number>;
+
+// NonNullable<Type>
+// type MyUnion = string | number | boolean | null | undefined;
+// type Random = NonNullable<MyUnion>;
