@@ -287,3 +287,61 @@
 // NonNullable<Type>
 // type MyUnion = string | number | boolean | null | undefined;
 // type Random = NonNullable<MyUnion>;
+//--------------------------------------------------------------------------------------
+// Generics In TypeScript
+// type Person = {
+//   name: string;
+//   email: string;
+// };
+// const func = <T>(n: T): T => {
+//   return n;
+// };
+// const person1: Person = {
+//   name: "Atul",
+//   email: "abc@gmail.com",
+// };
+// const ans = func<Person>(person1);
+// console.log(ans.email);
+// const func = <T, U>(n: T, o: U): { n: T; o: U } => {
+//   return { n, o };
+// };
+// const ans = func<number, string>(20, "Lol");
+// console.log(ans.n + ans.o);
+// Use of extends
+// const func = <T, U extends T>(n: T, o: U): { n: T; o: U } => {
+//   return { n, o };
+// };
+// const ans = func<number, number>(20, 32.3);
+// type Person = {
+//   name: string;
+//   age: number;
+// };
+// const users: Person[] = [
+//   {
+//     name: "Atul",
+//     age: 22,
+//   },
+//   {
+//     name: "Deependra",
+//     age: 21,
+//   },
+//   {
+//     name: "Vagarth",
+//     age: 21,
+//   },
+//   {
+//     name: "Arnav",
+//     age: 24,
+//   },
+// ];
+// const filterByPeople = <T, U extends keyof T>(
+//   arr: T[],
+//   property: U,
+//   value: T[U]
+// ): T[] => {
+//   return arr.filter((item) => item[property] === value);
+// };
+// const filterPeopleByName = filterByPeople(users, "name", "Atul");
+// const filterPeopleByAge = filterByPeople(users, "age", 21);
+// console.log(filterPeopleByName);
+// console.log(filterPeopleByAge);
